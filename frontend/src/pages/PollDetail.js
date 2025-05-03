@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import usePoll from '../hooks/usePoll';
 import VoteForm from '../components/polls/VoteForm';
 import Loader from '../components/common/Loader';
+import QRCode from "react-qr-code";
 
 const PollDetail = () => {
   const { polls, loading, error, fetchPolls, voteOnPoll } = usePoll();
@@ -51,6 +52,7 @@ const PollDetail = () => {
       <p>{poll.description}</p>
       <h3>Total Votes: {poll.totalVotes}</h3>
       <VoteForm poll={poll} onSubmit={handleVote} />
+      {/* <QRCode value={`http://localhost:3000/poll/${poll._id}`} /> */}
     </div>
   );
 };

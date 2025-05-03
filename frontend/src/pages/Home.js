@@ -20,7 +20,8 @@ const Home = () => {
           <Button 
             variant="contained" 
             color="primary" 
-            onClick={() => navigate('/dashboard')}
+            // onClick={() => navigate('/dashboard')}
+            onClick={() => navigate('/polls')}
           >
             View Polls
           </Button>
