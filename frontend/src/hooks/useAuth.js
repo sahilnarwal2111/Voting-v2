@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import api from '../utils/api';
 
 const useAuth = () => {
   const [user, setUser] = useState(null);
@@ -15,8 +16,10 @@ const useAuth = () => {
           setLoading(false);
           return;
         }
-
-        const response = await axios.get('/api/auth/me', {
+        // const response = await axios.get('/api/auth/me', {
+        //   headers: { Authorization: `Bearer ${token}` },
+        // });
+        const response = await api.get('/api/auth/me', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUser(response.data);
