@@ -8,7 +8,7 @@ const api = axios.create({
   }
 });
 
-// ✅ Add this function to set/remove token dynamically
+//  Add this function to set/remove token dynamically
 export const setAuthToken = (token) => {
   if (token) {
     api.defaults.headers.common['Authorization'] = `Bearer ${token}`;

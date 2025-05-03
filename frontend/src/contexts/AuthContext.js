@@ -65,7 +65,7 @@ export const AuthProvider = ({ children }) => {
   // Login user
   const login = async (userData) => {
     try {
-      setIsLoading(true); // 🔑 show loader while loading user
+      setIsLoading(true); //  show loader while loading user
       const res = await api.post('/api/auth/login', userData);
       
       // Set token in local storage

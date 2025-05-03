@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { AlertContext } from '../contexts/AlertContext';
+import { eventNames } from '../../../backend/models/User';
 
 const usePoll = () => {
   const [polls, setPolls] = useState([]);
@@ -14,6 +15,7 @@ const usePoll = () => {
     setLoading(true);
     setError(null);
     try {
+      console.log(env.REACT_APP_API_URL)
       const response = await axios.get('/api/polls');
       // const response = await axios.get('http://localhost:8080/api/polls');
       setPolls(response.data.data);
