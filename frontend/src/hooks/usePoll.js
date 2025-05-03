@@ -14,7 +14,8 @@ const usePoll = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.get('http://localhost:8080/api/polls');
+      const response = await axios.get('/api/polls');
+      // const response = await axios.get('http://localhost:8080/api/polls');
       setPolls(response.data.data);
       console.log(response.data)
     } catch (err) {
