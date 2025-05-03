@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { AlertContext } from '../contexts/AlertContext';
-import { eventNames } from '../../../backend/models/User';
+// import { eventNames } from '../../../backend/models/User';
 
 const usePoll = () => {
   const [polls, setPolls] = useState([]);
@@ -15,7 +15,7 @@ const usePoll = () => {
     setLoading(true);
     setError(null);
     try {
-      console.log(env.REACT_APP_API_URL)
+      console.log(process.env.REACT_APP_API_URL)
       const response = await axios.get('/api/polls');
       // const response = await axios.get('http://localhost:8080/api/polls');
       setPolls(response.data.data);
@@ -42,7 +42,7 @@ const usePoll = () => {
       console.log('Auth Token:', token);
 
       const response = await axios.post(
-        'http://localhost:8080/api/polls',
+        '/api/polls',
         formattedData,
         {
           headers: {
@@ -51,6 +51,16 @@ const usePoll = () => {
           },
         }
       );
+      // const response = await axios.post(
+      //   'http://localhost:8080/api/polls',
+      //   formattedData,
+      //   {
+      //     headers: {
+      //       'Content-Type': 'application/json',
+      //       'Authorization': `Bearer ${token}`
+      //     },
+      //   }
+      // );
       
       setPolls((prevPolls) => [...prevPolls, response.data]);
     } catch (err) {
@@ -71,8 +81,21 @@ const usePoll = () => {
       // const response = await axios.post(`http://localhost:8080/api/polls/${pollId}/vote`, 
       //   { option });
 
+      // const response = await axios.post(
+      //   'http://localhost:8080/api/votes',
+      //   {
+      //     pollId,
+      //     optionId: optionObj._id
+      //   },
+      //   {
+      //     headers: {
+      //       'Content-Type': 'application/json',
+      //       'Authorization': `Bearer ${token}`
+      //     }
+      //   }
+      // );
       const response = await axios.post(
-        'http://localhost:8080/api/votes',
+        '/api/votes',
         {
           pollId,
           optionId: optionObj._id
