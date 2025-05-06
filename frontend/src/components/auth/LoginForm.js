@@ -24,7 +24,7 @@ const LoginForm = () => {
       // console.log(response)
       // navigate('/dashboard'); // Redirect to dashboard after successful login
 
-      await login({ email, password }); // 🔥 use context method
+      await login({ email, password }); //  use context method
       console.log("Successful Login!");
       navigate('/dashboard');
 

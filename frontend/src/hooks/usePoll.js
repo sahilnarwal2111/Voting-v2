@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import { AlertContext } from '../contexts/AlertContext';
 // import { eventNames } from '../../../backend/models/User';
 import api from '../utils/api';
@@ -43,7 +43,7 @@ const usePoll = () => {
       const token = localStorage.getItem('token');
       console.log('Auth Token:', token);
 
-      const response = await axios.post(
+      const response = await api.post(
         '/api/polls',
         formattedData,
         {
@@ -96,7 +96,7 @@ const usePoll = () => {
       //     }
       //   }
       // );
-      const response = await axios.post(
+      const response = await api.post(
         '/api/votes',
         {
           pollId,
