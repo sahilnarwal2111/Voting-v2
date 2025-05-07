@@ -12,7 +12,7 @@ const CreatePoll = () => {
 
   const handleCreatePoll = async (pollData) => {
     await createPoll(pollData);
-    navigate('/admin-dashboard'); // Redirect to the admin dashboard or another page after poll creation
+    navigate('/polls'); // Redirect to the admin dashboard or another page after poll creation
   };
 
   return (
