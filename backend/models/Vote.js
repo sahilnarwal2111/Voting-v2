@@ -11,10 +11,6 @@ const VoteSchema = new mongoose.Schema({
     ref: 'User',
     required: true
   },
-  option: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true
-  },
   votedAt: {
     type: Date,
     default: Date.now

@@ -44,7 +44,6 @@ exports.castVote = async (req, res, next) => {
     const vote = await Vote.create({
       poll: pollId,
       user: req.user.id,
-      option: optionId,
       ipAddress: req.ip
     });
 
