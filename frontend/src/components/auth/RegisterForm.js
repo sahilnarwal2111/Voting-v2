@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TextField, Button, Grid, Typography, Alert } from '@mui/material';
 import axios from 'axios';
+import api from '../../utils/api';
 
 const RegisterForm = () => {
   const [username, setName] = useState('');
