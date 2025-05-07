@@ -21,7 +21,7 @@ const RegisterForm = () => {
     }
 
     try {
-      const response = await axios.post('/api/auth/register', { username, email, password });
+      const response = await api.post('/api/auth/register', { username, email, password });
       // Assuming the API returns a success message or token
       localStorage.setItem('token', response.data.token);
       navigate('/dashboard'); // Redirect to dashboard after successful registration
